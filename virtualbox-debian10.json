@@ -20,7 +20,7 @@
           "<enter><wait>"
         ],
         "cpus": "1",
-        "disk_size": "20000",
+        "disk_size": "30000",
         "format": "ova",
         "guest_additions_mode": "upload",
         "guest_os_type": "Debian_64",
