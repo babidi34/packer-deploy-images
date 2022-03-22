@@ -43,6 +43,26 @@
       "hostname": "Debian10-packer",
       "ssh_pass": "vagrant",
       "ssh_user": "vagrant"
-    }
+    },
+    "provisioners": [
+      {
+        "destination": "/tmp/",
+        "source": "id_rsa.pub",
+        "type": "file"
+      },
+      {
+        "type": "shell",
+        "script": "script_start.sh",
+        "execute_command": "echo {{user `ssh_pass`}} | sudo -S -E sh -c '{{ .Vars }} {{ .Path }}'",
+        "pause_before": "10s",
+        "timeout": "10s"
+      }
+    ],
+    "post-processors": [
+      {
+        "type": "vagrant",
+        "keep_input_artifact": true
+      }
+    ]
   }
   
