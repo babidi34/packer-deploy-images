@@ -28,3 +28,6 @@ apt update -y
 truncate -s 0 /etc/machine-id
 rm /var/lib/dbus/machine-id
 ln -s /etc/machine-id /var/lib/dbus/machine-id
+
+## add vagrant to sudo
+echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
