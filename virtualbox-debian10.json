@@ -35,7 +35,10 @@
         "ssh_timeout": "20m",
         "ssh_username": "{{user `ssh_user`}}",
         "type": "virtualbox-iso",
-        "vm_name": "Debian10-packer"
+        "vm_name": "Debian10-packer",
+        "vboxmanage": [
+          ["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]
+        ]
           }
     ],
     "variables": {
@@ -47,7 +50,7 @@
     "provisioners": [
       {
         "destination": "/tmp/",
-        "source": "id_rsa.pub",
+        "source": "id_ecdsa.pub",
         "type": "file"
       },
       {
@@ -61,7 +64,8 @@
     "post-processors": [
       {
         "type": "vagrant",
-        "keep_input_artifact": true
+        "keep_input_artifact": false,
+        "provider_override": "virtualbox"
       }
     ]
   }
