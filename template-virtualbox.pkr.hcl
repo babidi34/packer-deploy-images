@@ -67,6 +67,7 @@ variable "shutdown_command" {
 variable "ssh_pass" {
     type    = string
     default = "vagrant"
+    sensitive = true
 }
 
 variable "ssh_timeout" {
@@ -102,6 +103,10 @@ variable "provision_file_source" {
 }
 
 variable "provision_shell_script" {
+    type    = string
+}
+
+variable "provision_shell_execute_command" {
     type    = string
 }
 
@@ -151,6 +156,7 @@ build {
 
     provisioner "shell" {
         script = var.provision_shell_script
+        execute_command = var.provision_shell_execute_command
     }
 
     post-processor "vagrant" {
