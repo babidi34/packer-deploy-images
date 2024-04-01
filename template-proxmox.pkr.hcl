@@ -139,6 +139,11 @@ variable "boot_command" {
     type    = list(string)
 }
 
+variable "tags" {
+    type    = string
+    default = "template"
+}
+
 locals {
   packer_timestamp = formatdate("YYYYMMDD-hhmm", timestamp())
 }
@@ -177,6 +182,7 @@ source "proxmox-iso" "debian" {
     template_name        = var.template_name
     unmount_iso          = true
     username             = var.username
+    tags                 = var.tags
 
     }
   
