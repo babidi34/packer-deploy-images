@@ -38,3 +38,4 @@ network_model  = "virtio"
 network_firewall = true
 template_description = "Debian 12 lvm, generated on 30/03/2024"
 template_name = "debian-12-lvm"
+tags = "debian-12;template;lvm"
