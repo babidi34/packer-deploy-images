@@ -4,7 +4,7 @@ boot_command = [
 ]
 */
 boot_command = [
-  "<esc><wait>auto console-keymaps-at/keymap=fr console-setup/ask_detect=false debconf/frontend=noninteractive fb=false url=http://192.168.1.166:{{ .HTTPPort }}/preseed.cfg<enter>"
+  "<esc><wait>auto console-keymaps-at/keymap=fr console-setup/ask_detect=false debconf/frontend=noninteractive fb=false url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"
 ]
 cores = "1"
 sockets = "1"
