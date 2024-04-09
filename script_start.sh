@@ -17,11 +17,6 @@ chmod 400 /home/vagrant/.ssh/authorized_keys
 chown root:root /root/.ssh/authorized_keys
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
 
-# Install updates and curl
-apt update -y
-apt install -y curl wget
-# Apt cleanup.
-apt autoremove -y
 apt update -y
 
 #  Blank netplan machine-id (DUID) so machines get unique ID generated on boot.
